@@ -224,7 +224,7 @@ setup_apt() {
         /etc/dpkg/dpkg.cfg.d/path_exclusions
 }
 
-arch_for_tuxdude_go_pkg() {
+arch_for_tuxgal_go_pkg() {
     local platform="$(uname -m)"
     case "${platform:?}" in
         "x86_64")
@@ -250,22 +250,22 @@ arch_for_tuxdude_go_pkg() {
 }
 
 install_picoinit() {
-    local picoinit_version="0.2.2"
-    install_tuxdude_go_package "Tuxdude/picoinit" "${picoinit_version:?}"
+    local picoinit_version="0.3.0"
+    install_tuxgal_go_package "tuxgal/picoinit" "${picoinit_version:?}"
 }
 
-install_tuxdude_go_package() {
-    local tuxdude_gpg_key="8D458AC08D2CE9CE"
+install_tuxgal_go_package() {
+    local tuxgal_gpg_key="1856E0777ADFF1E9"
 
     install_gpg
-    download_gpg_key "hkps://keys.openpgp.org" "${tuxdude_gpg_key:?}"
+    download_gpg_key "hkps://keys.openpgp.org" "${tuxgal_gpg_key:?}"
     local download_dir="$(mktemp -d)"
     mkdir -p ${download_dir:?}
 
     local repo="${1:?}"
     local pkg_name="$(basename ${repo:?})"
     local version="${2:?}"
-    local arch="$(arch_for_tuxdude_go_pkg)"
+    local arch="$(arch_for_tuxgal_go_pkg)"
     local base_url="https://github.com/${repo:?}/releases/download/v${version:?}"
     local tar_url="${base_url:?}/${pkg_name:?}_${version:?}_Linux_${arch:?}.tar.xz"
     local tar_sig_url="${base_url:?}/${pkg_name:?}_${version:?}_Linux_${arch:?}.tar.xz.sig"
@@ -639,9 +639,9 @@ case "$1" in
         remove_packages "${@:2}"
         cleanup_post_package_op
         ;;
-    "install-tuxdude-go-package")
+    "install-tuxgal-go-package")
         update_repo
-        install_tuxdude_go_package "${@:2}"
+        install_tuxgal_go_package "${@:2}"
         ;;
     "setup-en-us-utf8-locale")
         configure_en_us_utf8_locale
