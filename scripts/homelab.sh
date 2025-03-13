@@ -314,6 +314,16 @@ add_user() {
         ${user_name:?}
 }
 
+download_file() {
+    local url="${1:?}"
+    curl \
+        --silent \
+        --fail \
+        --location \
+        --show-error \
+        ${url:?}
+}
+
 download_file_as() {
     local url="${1:?}"
     local dest_file="${2:?}"
@@ -648,6 +658,9 @@ case "$1" in
         ;;
     "add-user")
         add_user "${@:2}"
+        ;;
+    "download-file")
+        download_file "${@:2}"
         ;;
     "download-file-as")
         download_file_as "${@:2}"
