@@ -573,8 +573,8 @@ build_pkg_from_std_deb_src() {
     local build_dir="$(mktemp -d)"
 
     local debian_release="$(dpkg --status tzdata | awk -F'[:-]' '$1=="Provides"{print $NF}')"
-    local main_src_repo="Types: deb-src\nURIs: http://deb.debian.org/debian\nSuites: ${debian_release:?} ${debian_release:?}-updates\nComponents: main contrib non-free\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg"
-    local security_src_repo="Types: deb-src\nURIs: http://deb.debian.org/debian-security\nSuites: ${debian_release:?}-security\nComponents: main contrib non-free\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg"
+    local main_src_repo="Types: deb-src\nURIs: http://deb.debian.org/debian\nSuites: ${debian_release:?} ${debian_release:?}-updates\nComponents: main contrib non-free\nSigned-By: /usr/share/keyrings/debian-archive-keyring.pgp"
+    local security_src_repo="Types: deb-src\nURIs: http://deb.debian.org/debian-security\nSuites: ${debian_release:?}-security\nComponents: main contrib non-free\nSigned-By: /usr/share/keyrings/debian-archive-keyring.pgp"
 
     echo -e "${main_src_repo:?}\n\n${security_src_repo:?}\n\n" > \
         ${src_repo_file:?}
