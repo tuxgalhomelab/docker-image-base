@@ -3,7 +3,7 @@ set -E -e -o pipefail
 
 # Add repo specific metadata here.
 
-BASE_IMAGE_PATTERN='bookworm-([0-9]+)-slim'
+BASE_IMAGE_PATTERN='trixie-([0-9]+)-slim'
 BASE_IMAGE_CONFIG_KEY_PREFIX="UPSTREAM_IMAGE"
 
 RELEASE_PACKAGE_NAME="Debian"

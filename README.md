@@ -5,7 +5,7 @@
 The base docker image used for the docker containers running in tuxgal's
 Homelab setup.
 
-The image is based on the `debian bookworm slim` docker image with some
+The image is based on the `debian trixie slim` docker image with some
 non-essential contents removed, a few extra packages installed and
 also some custom utility scripts and commands that are used from the child
 images.
