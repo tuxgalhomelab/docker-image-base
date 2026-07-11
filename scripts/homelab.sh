@@ -180,8 +180,7 @@ install_python_without_deps() {
     export PATH="${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
     eval "$(pyenv init -)"
     PYTHON_CONFIGURE_OPTS="--enable-optimizations --with-lto" \
-        PYTHON_CFLAGS="-march=native -mtune=native" \
-        PROFILE_TASK="-m test.regrtest --pgo -j0" \
+        PROFILE_TASK="-m test.regrtest --pgo" \
         pyenv install ${python_version:?}
     pyenv global ${python_version:?}
 }
