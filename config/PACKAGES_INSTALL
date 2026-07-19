@@ -1,7 +1,7 @@
 bash=5.2.37-2+b9
 bc=1.07.1-4*
 ca-certificates=20250419
-curl=8.14.1-2+deb13u3
+curl=8.14.1-2+deb13u4
 grep=3.11-4*
 gzip=1.13-1
 iproute2=6.15.0-1
@@ -13,4 +13,4 @@ sed=4.9-2*
 tar=1.35+dfsg-3.1
 tzdata=2026b-0+deb13u1
 wget=1.25.0-2
-xz-utils=5.8.1-1
+xz-utils=5.8.1-1+deb13u1
